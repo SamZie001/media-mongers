@@ -1,17 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./page.module.css";
+import { useSession, signIn, signOut } from "next-auth/react";
 import useSWR from "swr";
 
 const Dashboard = () => {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-  const { data, error, isLoading } = useSWR(
-    "https://jsonplaceholder.typicode.com/posts",
-    fetcher
-  );
-
-  console.log("data: ", data);
+  const session = useSession();
+  console.log(session);
 
   return <div>Dashboard</div>;
 };

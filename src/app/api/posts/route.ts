@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import connect from "@/utils/db";
 import Post from "@/models/Post";
 
-export const GET = async (req: object, res: object) => {
+export const GET = async (req: Request, res: Response) => {
   try {
     await connect();
     const posts: object | null | undefined = await Post.find();

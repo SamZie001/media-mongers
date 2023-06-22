@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     "src/app/portfolio/[category]/page.tsx",
     "src/app/api/auth/[...nextauth]/route.ts",
-    "src/app/api/auth/register/route.ts",
+    // "src/app/api/auth/register/route.ts",
     ".env.local"
   ],
   "exclude": ["node_modules"]

@@ -8,8 +8,5 @@
 //       clientId: process.env.GITHUB_ID,
 //       clientSecret: process.env.NEXTAUTH_SECRET,
 //     }),
-//     // GoogleProvider({
-      
-//     // })
 //   ],
 // });

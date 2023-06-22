@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -29,6 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/portfolio/[category]/page.tsx",
+    "src/app/api/auth/[...nextauth]/route.ts",
+    "src/app/api/auth/register/route.ts",
     ".env.local"
   ],
   "exclude": ["node_modules"]

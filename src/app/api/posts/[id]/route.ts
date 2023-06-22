@@ -1,10 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import connect from "@/utils/db";
 import Post from "@/models/Post";
 import paramInterface from "@/interfaces/IdParam";
 
-export const GET = async (req: object, { params }: paramInterface) => {
-  const {id} = params
+export const GET = async (
+  req: Request | NextRequest,
+  { params }: paramInterface
+) => {
+  const { id } = params;
 
   try {
     await connect();

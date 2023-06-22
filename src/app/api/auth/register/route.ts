@@ -1,9 +1,9 @@
 import connect from "@/utils/db";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import User from "@/models/User";
 import bcrypt from "bcrypt";
 
-export const POST = async (request: Request) => {
+export const POST = async (request: Request | NextRequest) => {
   const { username, email, password } = await request.json();
   const salt = await bcrypt.genSalt(12);
   await connect();

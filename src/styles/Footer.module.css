@@ -1,0 +1,19 @@
+.container{
+  height: 50px;
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icons{
+  display: flex;
+  gap: 10px;
+}
+.icons .social {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.icons .social:hover{
+  rotate: 10deg;
+}

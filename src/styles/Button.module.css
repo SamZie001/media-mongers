@@ -1,0 +1,10 @@
+.container {
+  text-transform: capitalize;
+  font-size: 16px;
+  padding: 20px;
+  cursor: pointer;
+  background-color: var(--secondary);
+  border-radius: 5px;
+  width: max-content;
+  color: #fff;
+}

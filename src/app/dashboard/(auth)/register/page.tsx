@@ -26,7 +26,7 @@ const Register = () => {
     try {
       setErr(null);
       const res = await fetch("http://localhost:3000/api/auth/register", {
-        method: "post",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },

@@ -55,3 +55,15 @@
   background: transparent;
   color: var(--text);
 }
+.loading {
+  margin: 0 auto;
+  animation: rotateAnimation 2s infinite linear;
+}
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

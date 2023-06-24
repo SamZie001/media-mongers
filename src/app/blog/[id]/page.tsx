@@ -6,7 +6,7 @@ import IPost from "@/interfaces/IPost";
 import paramInterface from "@/interfaces/IdParam";
 
 async function getData(id: string | number) {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  const res = await fetch(`http:localhost:3000/api/posts/${id}`, {
     next: { revalidate: 10 },
   });
 

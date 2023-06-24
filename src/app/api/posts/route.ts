@@ -1,9 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connect from "@/utils/db";
 import Post from "@/models/Post";
-import { NextApiRequest } from "next";
 
-export const GET = async (req: Request | NextApiRequest) => {
+export const GET = async (req: Request | NextRequest) => {
   try {
     await connect();
     const posts: object | null | undefined = await Post.find();

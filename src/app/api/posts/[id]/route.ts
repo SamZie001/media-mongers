@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connect from "@/utils/db";
 import mongoose from "mongoose";
 import paramInterface from "@/interfaces/IdParam";
 import { NextApiRequest } from "next";
 
 export const GET = async (
-  req: Request | NextApiRequest,
+  req: Request | NextRequest,
   { params }: paramInterface
 ) => {
   const { id } = params;

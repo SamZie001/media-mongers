@@ -12,19 +12,17 @@ const Register = () => {
     password: "",
   });
   const [err, setErr] = useState(null);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
       setErr(null);
-      const res = await fetch("http://localhost:3000/api/auth/register", {
+    try {
+      const res = await fetch('/api/auth/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +36,6 @@ const Register = () => {
       setErr(error.message);
     }
   };
-
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>

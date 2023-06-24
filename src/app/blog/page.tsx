@@ -9,10 +9,9 @@ export const metadata = {
   description: "A website that showcases media content",
 };
 
+
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/posts", {
-    next: { revalidate: 10 },
-  });
+  const res = await fetch(`${process.env.SERVER_API_ENDPOINT}/api/posts`);
 
   // error handler
   if (!res.ok) {

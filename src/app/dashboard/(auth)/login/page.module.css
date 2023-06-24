@@ -1,70 +1,57 @@
 .container {
   display: flex;
-  align-items: center;
   flex-direction: column;
   gap: 20px;
-}
-
-.title{
-  color: #bbb;
-}
-
-.subtitle{
-  font-size: 20px;
-  margin-bottom: 30px;
-  color: #bbb;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
 }
 
 .form {
-  width: 300px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
 .input {
+  width: 100%;
+  outline: none;
   padding: 20px;
   background-color: transparent;
-  border: 2px solid #bbb;
-  border-radius: 5px;
-  outline: none;
-  color: #bbb;
-  font-size: 20px;
+  border: 1px solid var(--text);
+  color: var(--text);
+  border-radius: 7px;
+  font-size: 15px;
   font-weight: bold;
+}
+
+.container button {
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .button {
-  width: 300px;
-  padding: 20px;
-  cursor: pointer;
   background-color: #53c28b;
-  border: none;
-  border-radius: 5px;
-  color: #eee;
-  font-weight: bold;
 }
-
 .button:hover {
-  background-color: #49b07d;
+  color: var(--text);
 }
-
-.or {
-  color: #bbb;
+.oAuth {
+  background: var(--text);
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
-
-.link {
-  text-decoration: underline;
-  color: #7d7c7c;
-}
-
-.link:hover {
-  color: rgb(61, 61, 61);
-}
-
-.google {
-  background-color: rgba(228, 97, 50, 0.72);
-}
-
-.google:hover {
-  background-color: rgba(228, 97, 50, 0.803);
+.oAuth:hover {
+  border: 1px solid var(--text);
+  background: transparent;
+  color: var(--text);
 }

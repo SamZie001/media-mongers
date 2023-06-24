@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const Register = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -22,7 +22,6 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       setErr(null);
       const res = await fetch("http://localhost:3000/api/auth/register", {
@@ -45,17 +44,17 @@ const Register = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
-          name="username"
-          placeholder="username"
+          name="name"
+          placeholder="Name"
           required
           className={styles.input}
-          value={formData.username}
+          value={formData.name}
           onChange={handleChange}
         />
         <input
           type="email"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           required
           className={styles.input}
           value={formData.email}
@@ -64,7 +63,7 @@ const Register = () => {
         <input
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           required
           className={styles.input}
           value={formData.password}
@@ -73,7 +72,7 @@ const Register = () => {
         <button type="submit" className={styles.button}>
           Register
         </button>
-        {/* {err && <p style={{ color: "red" }}>{err}</p>} */}
+        {err && <p style={{ color: "red" }}>{err}</p>}
         <Link href="/dashboard/login">Login with an existing account</Link>
       </form>
     </div>

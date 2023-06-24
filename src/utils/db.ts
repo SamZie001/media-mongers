@@ -1,16 +1,18 @@
 import mongoose from "mongoose";
 
 const connect = async () => {
-  let endpoint = process.env.MONGO_URI;
+  const endpoint = process.env.MONGO_URI;
 
   try {
-    if (endpoint) {
-      await mongoose.connect(endpoint);
-    } else {
+    if (!endpoint) {
       throw new Error("MongoDB URI not found in environment variables.");
     }
+
+    await mongoose.connect(endpoint);
+    console.log("Connected to MongoDB");
   } catch (error) {
-    throw new Error("Connection failed");
+    console.error("MongoDB connection error:", error);
+    throw error;
   }
 };
 

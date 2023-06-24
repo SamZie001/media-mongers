@@ -4,17 +4,16 @@ import User from "@/models/User";
 import bcrypt from "bcrypt";
 
 export const POST = async (request: Request | NextRequest) => {
-  const { username, email, password } = await request.json();
+  const { name, email, password } = await request.json();
   const salt = await bcrypt.genSalt(12);
-
-  await connect();
-
   const hashedPwd = await bcrypt.hash(password, salt);
-  const newUser = new User({ username, email, password: hashedPwd });
+
   try {
-    await newUser.save();
+    await connect();
+    await User.create({ name, email, password: hashedPwd });
     return new NextResponse("Account has been created", { status: 201 });
   } catch (error: Error | any) {
+    console.log(error.message);
     return new NextResponse(error.message, { status: 400 });
   }
 };

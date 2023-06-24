@@ -4,7 +4,10 @@ import mongoose from "mongoose";
 import paramInterface from "@/interfaces/IdParam";
 import { NextApiRequest } from "next";
 
-export const GET = async (req: NextApiRequest, { params }: paramInterface) => {
+export const GET = async (
+  req: Request | NextApiRequest,
+  { params }: paramInterface
+) => {
   const { id } = params;
 
   try {

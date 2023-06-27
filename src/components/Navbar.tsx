@@ -12,7 +12,6 @@ export interface linkInterface {
     route: string;
   }[];
 }
-
 const Navbar = () => {
   const session = useSession();
   const routes: linkInterface["links"] = [
@@ -60,15 +59,16 @@ const Navbar = () => {
           </Link>
         ))}
 
-        {session.status==='authenticated' &&
-        <button
-          className={styles.logout}
-          onClick={() => {
-            signOut();
-          }}
-        >
-          Logout
-        </button>}
+        {session.status === "authenticated" && (
+          <button
+            className={styles.logout}
+            onClick={() => {
+              signOut();
+            }}
+          >
+            Logout
+          </button>
+        )}
       </div>
     </nav>
   );

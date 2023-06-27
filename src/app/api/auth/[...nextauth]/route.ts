@@ -7,6 +7,8 @@ import connect from "@/utils/db";
 import User from "@/models/User";
 import bcrypt from "bcrypt";
 
+
+console.log('k')
 const handler = NextAuth({
   providers: [
     GithubProvider({

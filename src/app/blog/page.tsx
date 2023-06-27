@@ -4,24 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import IPost from "@/interfaces/IPost";
 
-export const metadata = {
-  title: "MM | Blogs",
-  description: "A website that showcases media content",
-};
-
-
-async function getData() {
-  const res = await fetch(`${process.env.SERVER_API_ENDPOINT}/api/posts`);
-
-  // error handler
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
 const Blog = async () => {
+  async function getData() {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`
+    );
+
+    // error handler
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  }
   const data: IPost[] = await getData();
 
   return (

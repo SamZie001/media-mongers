@@ -6,7 +6,7 @@ import IPost from "@/interfaces/IPost";
 import paramInterface from "@/interfaces/IdParam";
 
 async function getData(id: string | number) {
-  const res = await fetch(`${process.env.SERVER_API_ENDPOINT}/api/posts/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts/${id}`, {
     next: { revalidate: 10 },
   });
 

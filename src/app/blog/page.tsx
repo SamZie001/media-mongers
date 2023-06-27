@@ -9,7 +9,6 @@ const Blog = async () => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`
     );
-
     // error handler
     if (!res.ok) {
       throw new Error("Failed to fetch data");

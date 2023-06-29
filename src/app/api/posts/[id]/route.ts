@@ -3,11 +3,9 @@ import connect from "@/utils/db";
 import Post from "@/models/Post";
 import paramInterface from "@/interfaces/IdParam";
 
-export const GET = async (
-  req: Request | NextRequest,
-  { params }: paramInterface
-) => {
-  const { id } = params;
+// @ts-ignore
+export const GET = async (req) => {
+  const { id } = req.query;
 
   try {
     await connect();

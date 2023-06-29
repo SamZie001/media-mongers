@@ -3,12 +3,17 @@ import connect from "@/utils/db";
 import Post from "@/models/Post";
 
 export const GET = async (req: Request | NextRequest) => {
-  const url = new URL(req.url);
-  const username = url.searchParams.get("username");
+  let query: unknown;
+
+  if (req.url) {
+    const url = new URL(req.url);
+    const username = url.searchParams.get("username");
+    query = username;
+  }
+
   try {
     await connect();
-    const query = username ? { username: username } : {};
-    const posts = await Post.find(query);
+    const posts = await Post.find(query ? query : {});
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (error) {
     return new NextResponse("Database error", { status: 500 });

@@ -1,21 +1,25 @@
+// @ts-nocheck
 import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import IPost from "@/interfaces/IPost";
+import { headers } from "next/dist/client/components/headers";
 
 const Blog = async () => {
   async function getData() {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts`
-    );
+    const { GET } = await import(`../api/posts/route`);
+    const res = await GET({});
+
+    const data = await res.json();
     // error handler
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
 
-    return res.json();
+    return data;
   }
+
   const data: IPost[] = await getData();
 
   return (

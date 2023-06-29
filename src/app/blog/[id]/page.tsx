@@ -6,16 +6,16 @@ import IPost from "@/interfaces/IPost";
 import paramInterface from "@/interfaces/IdParam";
 
 async function getData(id: string | number) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/posts/${id}`, {
-    next: { revalidate: 10 },
-  });
+  const {GET} = await import ('../../api/posts/[id]/route')
+  const res = await GET({query: {id}})
 
+  const data = await res.json();
   // error handler
   if (!res.ok) {
-    return notFound();
+    throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  return data;
 }
 
 export async function generateMetadata({ params }: paramInterface) {
@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: paramInterface) {
     description: post.description,
   };
 }
+
 const Post: React.FC<paramInterface> = async ({ params }) => {
   const blog: IPost = await getData(params.id);
 

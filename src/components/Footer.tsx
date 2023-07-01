@@ -16,7 +16,7 @@ const Footer = () => {
   ];
   return (
     <div className={styles.container}>
-      <div>@2023 Lamamia. All rights reserved.</div>
+      <div>@2023 Media Mongers. All rights reserved.</div>
       <div className={styles.icons}>
         {icons.map((icon) => (
           <Image
